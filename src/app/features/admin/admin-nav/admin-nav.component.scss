@@ -1,0 +1,18 @@
+.admin-nav {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+
+    a {
+        min-width: 100px;
+        border: 1px solid lightblue;
+        text-align: center;
+        text-decoration: none;
+        color: black;
+        transition: background .3s ease-in-out;
+        
+        &.active {
+            background-color: lightskyblue;
+        }
+    }
+}

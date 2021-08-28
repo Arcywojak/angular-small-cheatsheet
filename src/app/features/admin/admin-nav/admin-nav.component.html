@@ -1,0 +1,18 @@
+<div class="admin-nav">
+    <!--
+<ng-container *ngFor="let route of routes">
+        <a  [routerLink]="[route.route]">{{route.label}}</a>
+    </ng-container>
+    -->
+
+    <nav mat-tab-nav-bar>
+    <a mat-tab-link
+    *ngFor="let route of routes"
+    [routerLink]="route.route"
+    [routerLinkActiveOptions]="{exact: true}"
+    routerLinkActive="active"
+    >
+    {{route.label}}
+    </a>
+</nav>
+</div>

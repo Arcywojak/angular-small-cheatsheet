@@ -1,0 +1,12 @@
+.circle {
+    padding: 24px;
+    margin: 8px 0;
+    border-radius: 50%;
+    box-shadow: 2px 2px 2px;
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 500px;
+    padding-bottom: 100%;
+}
