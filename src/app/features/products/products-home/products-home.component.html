@@ -1,0 +1,7 @@
+<p>products-home works!</p>
+<h1 *ngIf="isLoading$ | async">
+    DATA IS LOADING
+</h1>
+<h1 *ngIf="errorMsg$ | async">
+    LOADING FAILED: {{errorMsg$ | async}}
+</h1>

@@ -28,14 +28,18 @@ export class AdminReportsComponent implements OnInit {
     //   console.log("from reports 2", e)
     // })
 
-    this.numbers$.subscribe(e => {
-      console.log("I TAKE ALL", e)
-    })
+    // this.numbers$.subscribe(e => {
+    //   console.log("I TAKE ALL", e)
+    // })
 
-    this.numbers$.pipe(
-      take(2)
-    ).subscribe(e => {
-      console.log("I TAKE 2", e)
+    // this.numbers$.pipe(
+    //   take(2)
+    // ).subscribe(e => {
+    //   console.log("I TAKE 2", e)
+    // })
+
+    this.data$.subscribe(data => {
+      console.log(data)
     })
   }
 

@@ -13,6 +13,8 @@ import { AboutUsPageComponent } from './features/about-us/about-us-page/about-us
 import { SharedModule } from './shared/shared.module';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { RootInterceptor } from './core/interceptors/root.interceptor';
 
 @NgModule({
   declarations: [
@@ -29,10 +31,13 @@ import { EffectsModule } from '@ngrx/effects';
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
+    HttpClientModule,
     StoreModule.forRoot({}, {}),
     EffectsModule.forRoot([])
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: RootInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

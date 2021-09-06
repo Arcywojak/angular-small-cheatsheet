@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor() { }
+  $data = this.http.get('https://jsonplaceholder.typicode.com/todos/1')
+
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+
+    this.$data.subscribe(data => {
+      
+    })
   }
 
 }

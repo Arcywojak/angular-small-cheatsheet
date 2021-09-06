@@ -21,6 +21,10 @@ const routes: Routes = [
     //canActivate:[CanAdminLoadActivatedGuard]
   },
   {
+    path: "products",
+    loadChildren: () => import("./features/products/products.module").then(m => m.ProductsModule)
+  },
+  {
     path: "no-admin-permission", component: NoAdminPermissionPageComponent
   },
   {

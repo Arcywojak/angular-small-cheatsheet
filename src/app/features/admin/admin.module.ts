@@ -12,12 +12,9 @@ import { Store, StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { AdminDataState, effects, reducers } from './store';
 import * as AdminDataActions from './store/actions/admin-data.actions';
-import { HttpClientModule } from '@angular/common/http';
-
-
-function initAdminData(store: Store<AdminDataState>) {
-    return store.dispatch(AdminDataActions.loadAdminData());
-}
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AdminDataInterceptor } from './interceptors/admin-data.interceptor';
+import { RootInterceptor } from 'src/app/core/interceptors/root.interceptor';
 
 @NgModule({
   declarations: [
@@ -37,11 +34,8 @@ function initAdminData(store: Store<AdminDataState>) {
   ],
   providers: [
     AdminServiceService,
-    {
-      provide: APP_INITIALIZER,
-      useFactory: initAdminData, deps:[Store],
-      multi: true
-    }
+    { provide: HTTP_INTERCEPTORS, useClass: AdminDataInterceptor, multi: true },
+    {provide: HTTP_INTERCEPTORS, useClass: RootInterceptor, multi: true}
   ],
 })
 export class AdminModule { }
